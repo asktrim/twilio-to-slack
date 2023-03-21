@@ -28,6 +28,7 @@ app.use((req, res, next) => {
       text: `*From ${req.body.From}:* ${req.body.Body}`
     }
   }, (err, httpRes, body) => {
+    console.log("error has occurred:", err)
     console.log(!err ? 'SMS relayed to Slack' : 'Error: Failed to relay sms to Slack')
     res.setHeader('Content-type', 'text/xml')
     res.end(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`)
